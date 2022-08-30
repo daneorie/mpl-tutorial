@@ -433,3 +433,7 @@ fun sumOf (st: 'a sum_tree) : 'a =
 ```
 
 TODO continue from here...
+
+[(← Parallelism and Granularity Control)](../how-to-par/README.md)
+[(Sequences →)](../sequences/README.md)
+

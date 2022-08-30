@@ -112,4 +112,6 @@ is an array with a beginning and ending position.
   the length sequence to compute the `offsets` for each nested
   sequence in the result flat sequence.  Finally, it allocates the result array and copies each nested sequence by using a doubly nested loop over.
 
+[(← Trees)](../trees/README.md)
+[(MCSS →)](../mcss/README.md)
 

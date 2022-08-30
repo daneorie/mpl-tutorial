@@ -104,3 +104,6 @@ have to be more explicit. This way, our <code>.mlb</code> file
 describes <strong>everything</strong> about our program. No hidden pieces!
 </blockquote>
 </details>
+
+[(← Setup)](../setup/README.md) [(Parallelism and Granularity Control →)](../how-to-par/README.md)
+

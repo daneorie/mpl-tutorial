@@ -327,3 +327,7 @@ grain 30: 0.214
 Keep in mind there is statistical noise to take into account here. A proper
 experiment would perform many trials and compare averages. We're being a bit
 sloppy, just for the sake of keeping things simple.
+
+[(← Hello World)](../README.md)
+[(Trees →)](../trees/README.md)
+
