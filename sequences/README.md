@@ -5,7 +5,7 @@
 
 A sequence 
 `<a_0, a_2, ..., a_n>`
-is an ordered collection of elements that support several operations, inclduing fast random access.
+is an ordered collection of elements that support several operations, including fast random access.
 
 # Sequence Interface
 
@@ -19,7 +19,7 @@ Sequences support the following operations
 
 * `singleton` takes an element and returns a sequence that contains that element (only)
 
-* `tabulate` takes 1) a generator function that takes a position and generates the element at that position 2) a length and returns a sequence of the given length where the element at a given position is computed by appling the generator function (at that position)
+* `tabulate` takes 1) a generator function that takes a position and generates the element at that position 2) a length and returns a sequence of the given length where the element at a given position is computed by applying the generator function (at that position)
 
 * `rev` reverses the given sequence
 
@@ -29,19 +29,19 @@ Sequences support the following operations
 
 * `applyi` takes a function and a sequence, and applies the function to each position and the element at that position.  It differs from `apply` in that it passes the element position as an argument to the function. 
 
-* `map` takes a function from elements to (possibly new type of) elements and creates a new sequence by appling the function to each element
+* `map` takes a function from elements to (possibly new type of) elements and creates a new sequence by applying the function to each element
 
 * `subseq` takes a sequence and an interval and returns a subsequence that contains the elements in the given interval 
 
 
 
-* `filter` takes a boolean function and a sequence and returns a new sequencue consisting of elements that satisfy the function
+* `filter` takes a boolean function and a sequence and returns a new sequence consisting of elements that satisfy the function
 
-* `flatten` takes a sequence of sequences and flattens it into a single, flat sequencues by appending the nested sequencues,
+* `flatten` takes a sequence of sequences and flattens it into a single, flat sequences by appending the nested sequences,
 
 * `update` takes an input sequence and a position value pair and returns a new sequence that is identical to the input sequence except at the given position, which contains the specified value.  The `update` function is pure is the sense that it does not modify the input sequence.
 
-* `inject` takes an input sequence and a sequencue of updates consisting of position-value pairs and returns a new sequence that is idential to the input sequence except and specified updates.  For each updated position, the output sequence contains (an arbitrary) one of the updated values.   The `inject` function is pure is the sense that it does not modify the input sequence.
+* `inject` takes an input sequence and a sequence of updates consisting of position-value pairs and returns a new sequence that is identical to the input sequence except and specified updates.  For each updated position, the output sequence contains (an arbitrary) one of the updated values.   The `inject` function is pure is the sense that it does not modify the input sequence.
 
 * `isEmpty` returns `true` if the input sequence is empty and `false` otherwise
 
@@ -49,9 +49,9 @@ Sequences support the following operations
 
 * `iterate` takes 1) an iterator function, 2) an initial value, 3) and a sequence and iteratively applies the iterator function to the elements of the sequence and previously computed value (or the initial value) and returns the final computed value
 
-* `reduce` takes a 1) associative reducer function that maps to elements to another element, 2) the identity value of the reducer function, and 3) and a sequence and returs the reduced value for the sequence   
+* `reduce` takes a 1) associative reducer function that maps to elements to another element, 2) the identity value of the reducer function, and 3) and a sequence and returns the reduced value for the sequence   
 
-* `scan` takes a 1) associative reducer function that maps to elements to another element, 2) the identity value of the reducer function, and 3) and a sequence and returns 1) the reduced value for each prefix of the sequence (starting with the emtpy sequence, for which the value is identity), and 2) the reduced value for the whole sequence    
+* `scan` takes a 1) associative reducer function that maps to elements to another element, 2) the identity value of the reducer function, and 3) and a sequence and returns 1) the reduced value for each prefix of the sequence (starting with the empty sequence, for which the value is identity), and 2) the reduced value for the whole sequence
 
 ## Implementation
 
@@ -68,7 +68,7 @@ destructive updates or by using persistence (versioning).
 ## Array Sequences
 
 We implement sequences by using arrays as the backing data structure.
-More specificially, we represent a sequence as an array slice, which
+More specifically, we represent a sequence as an array slice, which
 is an array with a beginning and ending position.
 
 * Function `nth` simply accesses the element at the specified position
@@ -84,12 +84,12 @@ is an array with a beginning and ending position.
 
 * Funciton `map` tabulates a new sequence by using the provided map function on the input sequence.
 
-* Functions `apply` and `applyi` aplies the given function for each
+* Functions `apply` and `applyi` applies the given function for each
   position in the given array. The difference between `apply` and `applyi` is that `applyi` passes the position as argument to the update function.  Both are implemented as a simple parallel-for loop over the sequence.
 
 * Function `update` takes an input sequence and a position value pair. It first creates a result sequence by copying the input sequence using a `map` and then updates the result sequence at the specified position with the given value.
 
-* Function `inject` takes a sequence and an updat sequence consisting
+* Function `inject` takes a sequence and an update sequence consisting
   of index-value pairs, indicating the position and the value of the
   update respectively.  It then creates a result array by first copying the
   input array and then applying each update in parallel.
